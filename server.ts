@@ -25,11 +25,11 @@ async function startServer() {
     }
 
     try {
-      // Defaulting to GNews.io API structure as it's common for these keys
-      let url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=${lang}&apikey=${apiKey}`;
+      // GNews.io API uses 'token' parameter for the API key
+      let url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=${lang}&token=${apiKey}`;
       
       if (q) {
-        url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(q as string)}&lang=${lang}&apikey=${apiKey}`;
+        url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(q as string)}&lang=${lang}&token=${apiKey}`;
       }
 
       const response = await fetch(url);
